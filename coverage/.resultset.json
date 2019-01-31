@@ -1,0 +1,28 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/karel/Documentos/rps-challenge/spec/features/palyer_name_spec.rb": [
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/karel/Documentos/rps-challenge/lib/player.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1548925515
+  }
+}
