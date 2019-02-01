@@ -2,7 +2,7 @@ class Player
 
   attr_reader :name
 
-  def initialize(name)
-    @name = name
+  def initialize(trait)
+    @name = trait["player_name"]
   end
 end
