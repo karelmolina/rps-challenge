@@ -8,16 +8,13 @@ class Rps < Sinatra::Base
   set :static, File.dirname(__FILE__) + '/static'
   # the session is enable
   enable :session
-  before(:all) do
-    @thing = Thing.new
-  end
 
   get '/' do
     erb :index
   end
 
   post'/name' do
-    session[:player_name] = params[:player_name]
+    session[:player_name] = params[:name]
     redirect '/game'
   end
 

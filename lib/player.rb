@@ -1,8 +1,8 @@
 class Player
 
-  attr_reader :name
+  attr_reader :player_name
 
-  def initialize(trait)
-    @name = trait["player_name"]
+  def initialize(traits)
+    @player_name = traits["player_name"]
   end
 end
