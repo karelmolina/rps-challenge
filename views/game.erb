@@ -5,9 +5,14 @@
     <title></title>
   </head>
   <body>
-      <h1> RPS Game !</h1>
+      <h1> RPS Game ! </h1>
+        <p>Player : <%= @player.name%></p>
       <h2>Choose your weapon: </h2>
-      <br>
-      Player : <%= @player.player_name%>
+
+      <form class="" action="/play" method="post">
+        <input type="submit" name="option" value="Rock">
+        <input type="submit" name="option" value="Paper">
+        <input type="submit" name="option" value="Scissors">
+      </form>
   </body>
 </html>
