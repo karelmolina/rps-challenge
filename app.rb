@@ -10,12 +10,14 @@ class Rps < Sinatra::Base
   set :static, File.dirname(__FILE__) + '/static'
   # the session is enable
   enable :sessions
+ # enable static dir
+  enable :static
 
   get '/' do
     erb :index
   end
 
-  post'/name' do
+  post '/name' do
     session[:name] = params[:name]
     redirect '/game'
   end
@@ -27,7 +29,7 @@ class Rps < Sinatra::Base
 
   post '/play' do
     session[:weapon] = params[:option]
-    session[:computer_choise] = Computer.new.weapon
+    session[:computer_choice] = Computer.new.weapon
     redirect '/play'
   end
 
