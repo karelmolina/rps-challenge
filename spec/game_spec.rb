@@ -18,24 +18,30 @@ describe Game do
 
   describe "End game" do
     context 'posibles ends' do
-      subject(:win) { game }
-      subject(:draw) { Game.new(draw_option) }
-      subject(:lose) {Game.new(lose_option) }
+      let(:lose_game) { { "weapon" => "rock", "computer_choice" => "paper" } }
+      let(:draw_game) { { "weapon" => "paper", "computer_choice" => "paper" } }
+      subject(:win) { :game }
+      subject(:draw) { Game.new(draw_game) }
+      subject(:lose) { Game.new(lose_game) }
 
-      let(:lose_option) { { "weapon" => "rock", "computer_choice" => "paper" } }
-      let(:draw_option) { { "weapon" => "paper", "computer_choice" => "paper" } }
-
-      it "player win" do
-        expect(win.resolution).to eq "win"
+      describe "player win" do
+        it "return win if rock beat scissors"do
+          expect(win.resolution).to eq "win"
+        end
       end
 
-      it "player lose" do
-        expect(lose.resolution).to eq "lose"
+      describe "player lose" do
+        it "return lose if rock is beat by paper" do
+          expect(lose.resolution).to eq "lose"
+        end
       end
 
-      it "game is a draw" do
-        expect(draw.resolution).to eq "draw"
+      describe "game is a draw" do
+        it "return draw if the weapon are the same" do
+          expect(draw.resolution).to eq "draw"
+        end
       end
+
     end
   end
 end

@@ -1,10 +1,10 @@
 class Game
   RULES = {
-    rock: {rock: "draw", paper: "lose", scissors: "win"},
-    paper: {rock: "win", paper: "draw", scissors: "lose"},
-    scissors: {rock: "lose", paper: "win", scissors: "draw"}
+    rock: { scissors: :win, paper: :lose, rock: :draw },
+    scissors: { paper: :win, rock: :lose, scissors: :draw },
+    paper: { rock: :win, scissors: :lose, paper: :draw }
   }
-  attr_reader :player_choice, :computer_choice
+  attr_reader :player_choice, :computer_choice, :player_sym_choice, :computer_sym_choice
 
   # contructor
   def initialize(traits)
@@ -12,16 +12,24 @@ class Game
     @computer_choice = traits['computer_choice']
   end
 
+  def makesymbols(player_choice,computer_choice)
+    @player_sym_choice = player_choice.to_sym
+    @computer_sym_choice = computer_choice.to_sym
+  end
 
   def resolution
-    if RULES[@pplayer_choice][@computer_choice] == "draw"
+    makesymbols(@player_choice, @computer_choice)
+    result = RULES[@pplayer_sym_choice][@computer_sym_choice]
+    if result == :draw
       return "draw"
     end
-    if RULES[@pplayer_choice][@computer_choice] == "win"
+    if result == :win
       return "win"
     end
-    if RULES[@pplayer_choice][@computer_choice] == "lose"
+    if result == :lose
       return "lose"
     end
   end
+
+
 end
