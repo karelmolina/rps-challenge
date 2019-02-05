@@ -11,15 +11,8 @@
     </div>
 
     <div class="">
-      <% if @game.resolution == "win"%>
-      <p> You win the game!!</p>
-      <% elsif @game.resolution == "lose"%>
-      <p> You lose the game :C </p>
-      <% elsif @game.resolution == "draw"%>
-      <p>It a draw </p>
-      <%end%>
+      <p> <%= @game.resolution %> </p>
     </div>
-    
   </body>
 
 </html>

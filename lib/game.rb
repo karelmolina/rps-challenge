@@ -4,7 +4,8 @@ class Game
     scissors: { paper: :win, rock: :lose, scissors: :draw },
     paper: { rock: :win, scissors: :lose, paper: :draw }
   }
-  attr_reader :player_choice, :computer_choice, :player_sym_choice, :computer_sym_choice
+  attr_reader :player_choice, :computer_choice,
+                :player_sym_choice, :computer_sym_choice
 
   # contructor
   def initialize(traits)
@@ -12,24 +13,19 @@ class Game
     @computer_choice = traits['computer_choice']
   end
 
-  def makesymbols(player_choice,computer_choice)
+  def makesymbols(player_choice, computer_choice)
     @player_sym_choice = player_choice.to_sym
     @computer_sym_choice = computer_choice.to_sym
   end
 
   def resolution
     makesymbols(@player_choice, @computer_choice)
-    result = RULES[@pplayer_sym_choice][@computer_sym_choice]
-    if result == :draw
-      return "draw"
-    end
-    if result == :win
-      return "win"
-    end
-    if result == :lose
-      return "lose"
-    end
-  end
+    result = RULES[@player_sym_choice][@computer_sym_choice]
+    # Guard clauses
+    return "Its a draw" if result == :draw
+    return "You have win" if result == :win
+    return "You lose!" if result == :lose
 
+  end
 
 end
